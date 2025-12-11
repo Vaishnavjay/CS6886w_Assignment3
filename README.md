@@ -7,8 +7,6 @@ The goal is to train a baseline MobileNetV2 model on CIFAR-10 and then apply a c
 
 ## 1. Repository Structure
 
-```text
-.
 ├── README.md
 ├── requirements.txt
 ├── src
@@ -37,4 +35,5 @@ All required packages (plus a few Colab defaults) are pinned in requirements.txt
 2.1. Install dependencies
 
 From the repository root:
+
 
