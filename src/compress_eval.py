@@ -4,10 +4,10 @@ import torch
 import torch.nn as nn
 import wandb
 
-from .utils import load_checkpoint, model_size_bytes
-from .data import get_cifar10_loaders
-from .models import MobileNetV2CIFAR10
-from .quantization import QuantConfig, compress_mobilenetv2
+from src.utils import load_checkpoint, model_size_bytes
+from src.data import get_cifar10_loaders
+from src.models import MobileNetV2CIFAR10
+from src.quantization import QuantConfig, compress_mobilenetv2
 
 @torch.no_grad()
 def evaluate(model, loader, device):
