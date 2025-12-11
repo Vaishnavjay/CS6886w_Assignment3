@@ -150,8 +150,8 @@ This notebook mirrors the scripts and was used for exploratory work and plotting
 ## 8. Full steps
 ```text
 # 1. Clone repository
-git clone https://github.com/<your_username>/<your_repo>.git
-cd <your_repo>
+git clone https://github.com/Vaishnavjay/CS6886w_Assignment3.git
+cd CS6886w_Assignment3
 
 # 2. Install dependencies
 pip install -r requirements.txt
@@ -175,6 +175,7 @@ python -m src.compress_eval \
     --project cs6886_mobilenet_quant \
     --seed 42
 ```
+
 
 
 
