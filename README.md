@@ -4,7 +4,6 @@ This repository contains my implementation for **CS6886W – Systems Engineering
 The goal is to train a baseline MobileNetV2 model on CIFAR-10 and then apply a custom, configurable quantization-based compression pipeline to model **weights and activations**, and evaluate accuracy vs. compression trade-offs.
 
 ---
-
 ## 1. Repository Structure
 ```text
 ├── README.md
@@ -20,7 +19,7 @@ The goal is to train a baseline MobileNetV2 model on CIFAR-10 and then apply a c
 └── notebooks
     └── CS6886W_Assignment3_Vaishnav.ipynb   #original Colab notebook
 ```
-⸻
+---
 ## 2. Environment & Dependencies
 This code was developed and tested on Google Colab (Python 3.12, CUDA 12) with:
 	•	torch==2.9.0+cu126
@@ -39,7 +38,7 @@ pip install -r requirements.txt
 ```
 On Google Colab, this is usually enough to match the environment used for the assignment.
 
-⸻
+---
 ## 3. Reproducibility & Seed Configuration
 
 All experiments use a fixed random seed for reproducibility:
@@ -52,7 +51,7 @@ The following are seeded:
 
 Seeding is done via set_seed(42) implemented in src/utils.py, and exposed to the scripts via --seed argument.
 
-⸻
+---
 ## 4. Training the Baseline (Question 1)
 
 The baseline is a MobileNetV2 adapted for CIFAR-10:
@@ -81,7 +80,8 @@ This will:
 	•	Train MobileNetV2 for 200 epochs
 	•	Save the best checkpoint (by test accuracy) into ./runs/baseline_sgd/, e.g.
 mobilenetv2_cifar10_best.pth
-⸻
+
+---
 ## 5. Compression & Evaluation (Questions 2–4)
 
 The compression pipeline:
@@ -108,7 +108,8 @@ This script will:
 	•	Model size (MB)
 	•	Compression ratios for model / weights / activations
 	•	Optionally log all runs to Weights & Biases (see below).
-⸻
+
+---
 ## 6. Weights & Biases Logging (Question 3)
 
 To reproduce the parallel coordinates plot for Question 3, create (or reuse) a W&B account and login:
@@ -130,7 +131,8 @@ All my quantization sweep runs are logged under:
 	•	Project: cs6886_mobilenet_quant
 	•	URL: https://api.wandb.ai/links/ee24d032-iitm-india/vpoiiiqr
 The Parallel Coordinates chart shown in the report was generated from this project.
-⸻
+
+---
 ## 7. Google Colab Notebook
 
 For convenience, the original Colab notebook with all intermediate experiments is included under:
@@ -142,7 +144,8 @@ You can open this directly in Google Colab:
 	2.	Right-click → “Open with” → “Colaboratory”.
 
 This notebook mirrors the scripts and was used for exploratory work and plotting.
-⸻
+
+---
 ## 8. Full steps
 ```text
 # 1. Clone repository
@@ -171,4 +174,5 @@ python -m src.compress_eval \
     --project cs6886_mobilenet_quant \
     --seed 42
 ```
+
 
