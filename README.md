@@ -22,13 +22,14 @@ The goal is to train a baseline MobileNetV2 model on CIFAR-10 and then apply a c
 ---
 ## 2. Environment & Dependencies
 This code was developed and tested on Google Colab (Python 3.12, CUDA 12) with:
+```text
 	•	torch==2.9.0+cu126
 	•	torchvision==0.24.0+cu126
 	•	torchaudio==2.9.0+cu126
 	•	numpy==2.0.2
 	•	matplotlib==3.10.0
 	•	wandb==0.23.1
-
+```
 All required packages (plus a few Colab defaults) are pinned in requirements.txt.
 
 ### 2.1. Install dependencies
@@ -174,6 +175,7 @@ python -m src.compress_eval \
     --project cs6886_mobilenet_quant \
     --seed 42
 ```
+
 
 
 
