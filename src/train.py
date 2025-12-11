@@ -5,9 +5,9 @@ import torch.nn as nn
 from torch.optim import SGD
 from torch.optim.lr_scheduler import MultiStepLR
 
-from .utils import set_seed, save_checkpoint
-from .data import get_cifar10_loaders
-from .models import MobileNetV2CIFAR10
+from src.utils import set_seed, save_checkpoint
+from src.data import get_cifar10_loaders
+from src.models import MobileNetV2CIFAR10
 
 def train_one_epoch(model, loader, optimizer, criterion, device):
     model.train()
