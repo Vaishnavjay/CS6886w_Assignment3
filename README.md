@@ -43,12 +43,16 @@ On Google Colab, this is usually enough to match the environment used for the as
 ## 3. Reproducibility & Seed Configuration
 
 All experiments use a fixed random seed for reproducibility:
+```text
 	•	Seed: 42
+```
 
 The following are seeded:
+```text
 	•	Python random
 	•	NumPy
 	•	PyTorch (CPU + CUDA)
+```
 
 Seeding is done via set_seed(42) implemented in src/utils.py, and exposed to the scripts via --seed argument.
 
@@ -56,11 +60,12 @@ Seeding is done via set_seed(42) implemented in src/utils.py, and exposed to the
 ## 4. Training the Baseline (Question 1)
 
 The baseline is a MobileNetV2 adapted for CIFAR-10:
+```text
 	•	First conv stride changed from 2 → 1
 	•	Width multiplier α = 1.0
 	•	Dropout p = 0.2 before classifier
 	•	SGD optimizer with momentum and MultiStepLR schedule
-
+```
 ### 4.1. Command (full baseline run)
 
 From the repo root, run:
@@ -77,19 +82,20 @@ python -m src.train \
     --seed 42
 ```
 This will:
+```text
 	•	Download CIFAR-10 into ./data (if not present)
 	•	Train MobileNetV2 for 200 epochs
-	•	Save the best checkpoint (by test accuracy) into ./runs/baseline_sgd/, e.g.
-mobilenetv2_cifar10_best.pth
-
+	•	Save the best checkpoint (by test accuracy) into ./runs/baseline_sgd/
+```
 ---
 ## 5. Compression & Evaluation (Questions 2–4)
 
 The compression pipeline:
+```text
 	•	Quantizes all Conv2d and Linear weights (per-channel for Conv2d, per-tensor for Linear).
 	•	Inserts QuantAct before the classifier to quantize the final activation vector.
 	•	Supports configurable bitwidths for weights and activations via QuantConfig.
-
+```
 ### 5.1. Single compression/evaluation run
 
 Once you have a trained baseline checkpoint (e.g. from Section 4):
@@ -101,6 +107,7 @@ python -m src.compress_eval \
     --seed 42
 ```
 This script will:
+```text
 	•	Load the baseline model from the given checkpoint.
 	•	Build compressed copies of the model using different (w_bits, a_bits, per_channel) settings.
 	•	Evaluate each configuration on CIFAR-10 test set.
@@ -109,7 +116,7 @@ This script will:
 	•	Model size (MB)
 	•	Compression ratios for model / weights / activations
 	•	Optionally log all runs to Weights & Biases (see below).
-
+```
 ---
 ## 6. Weights & Biases Logging (Question 3)
 
@@ -118,6 +125,7 @@ To reproduce the parallel coordinates plot for Question 3, create (or reuse) a W
 wandb login
 ```
 Then run compress_eval.py as in Section 5.1. The script logs:
+```text
 	•	weight_quant_bits
 	•	activation_quant_bits
 	•	per_channel flag
@@ -125,7 +133,7 @@ Then run compress_eval.py as in Section 5.1. The script logs:
 	•	compression_ratio
 	•	quantized_acc
 	•	baseline_size_mb
-
+```
 ### 6.1. W&B project link
 
 All my quantization sweep runs are logged under:
@@ -143,9 +151,10 @@ For convenience, the original Colab notebook with all intermediate experiments i
 notebooks/CS6886W_Assignment3_Vaishnav.ipynb
 ```
 You can open this directly in Google Colab:
+```text
 	1.	Upload the .ipynb to Google Drive.
 	2.	Right-click → “Open with” → “Colaboratory”.
-
+```
 This notebook mirrors the scripts and was used for exploratory work and plotting.
 
 ---
@@ -177,6 +186,7 @@ python -m src.compress_eval \
     --project cs6886_mobilenet_quant \
     --seed 42
 ```
+
 
 
 
