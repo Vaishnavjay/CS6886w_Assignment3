@@ -17,7 +17,7 @@ The goal is to train a baseline MobileNetV2 model on CIFAR-10 and then apply a c
 │   ├── train.py          # Baseline MobileNetV2 training script (Q1)
 │   └── compress_eval.py  # Compression + evaluation + W&B logging (Q2, Q3, Q4)
 └── notebooks
-    └── CS6886W_Assignment3_Vaishnav.ipynb   #original Colab notebook
+    └── CS6886W_Assignment3_Vaishnav.ipynb   # Original Colab notebook
 ```
 ---
 ## 2. Environment & Dependencies
@@ -174,5 +174,6 @@ python -m src.compress_eval \
     --project cs6886_mobilenet_quant \
     --seed 42
 ```
+
 
 
