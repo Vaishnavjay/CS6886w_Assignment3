@@ -129,8 +129,10 @@ Then run compress_eval.py as in Section 5.1. The script logs:
 ### 6.1. W&B project link
 
 All my quantization sweep runs are logged under:
+```text
 	•	Project: cs6886_mobilenet_quant
 	•	URL: https://api.wandb.ai/links/ee24d032-iitm-india/vpoiiiqr
+```
 The Parallel Coordinates chart shown in the report was generated from this project.
 
 ---
@@ -175,6 +177,7 @@ python -m src.compress_eval \
     --project cs6886_mobilenet_quant \
     --seed 42
 ```
+
 
 
 
